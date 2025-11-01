@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="th">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สรุปผลงานประจำปี</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Sarabun', 'Noto Sans Thai', Arial, sans-serif;
+            height: 100%;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        .person-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .person-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="min-h-full">
+  <main class="min-h-full bg-gradient-to-br from-blue-50 to-indigo-100"><!-- Header Section -->
+   <header class="header-gradient text-white py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+     <h1 id="main-title" class="text-4xl md:text-5xl font-bold mb-4">สรุปผลงานประจำปี 2568</h1>
+     <h2 id="subtitle" class="text-xl md:text-2xl font-light mb-6 opacity-90">รายงาน KPI กลุ่มการตลาด โซน 2</h2>
+     <p id="description" class="text-lg opacity-80 max-w-2xl mx-auto">เลือกดูรายงานและลงผลงานของแต่ละฝ่าย</p>
+    </div>
+   </header><!-- Main Content -->
+   <section class="py-12">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="grid-container" id="person-grid"><!-- Person cards will be generated here -->
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-gray-800 text-white py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+     <p class="text-gray-300">© รายงานผลงานประจำปี 2568 | จัดทำโดย นายสุภร อนุสุริยา</p>
+    </div>
+   </footer>
+  </main>
+  <script>
+        // Default configuration
+        const defaultConfig = {
+            main_title: "สรุปผลงานประจำปี 2568",
+            subtitle: "รายงาน KPI กลุ่มการตลาด โซน 2", 
+            description: "เลือกดูรายงานและลงผลงานของแต่ละฝ่าย",
+            button_text: "บันทึกรายงาน/ดูรายงาน",
+            primary_color: "#667eea",
+            secondary_color: "#764ba2",
+            text_color: "#1f2937",
+            background_color: "#f0f4ff",
+            button_color: "#4f46e5"
+        };
+
+        // Person data (14 people)
+        const persons = [
+            { name: "นายประดิษฐ์ แสงชัย", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 4", id: "person1" },
+            { name: "นายสง่า บัวไขย", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 6", id: "person2" },
+            { name: "นายวิรันต์โรจน์ การพะวงศ์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 23", id: "person3" },
+            { name: "นางสุพิชฌาย์ เจือจันทร์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 24", id: "person4" },
+            { name: "นางตรีชญาฎาฉ์ พระงาม", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 42", id: "person5" },
+            { name: "นางไพบูรณ์ ราตรี", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 71", id: "person6" },
+            { name: "นายญาณวุฒิ ธรรมมาบุญ", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 81", id: "person7" },
+            { name: "นางบังอร พงค์พีระ", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 82", id: "person8" },
+            { name: "นายญาณวุฒิ ธรรมมาบุญ", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 103", id: "person9" },
+            { name: "นางพิมพ์ลดา พสิษฐ์พงศกร", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 111", id: "person10" },
+            { name: "นายธนกร นิยมศรี", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 118", id: "person11" },
+            { name: "นางกัญญาวีร์ ภูหมื่น", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 121", id: "person12" },
+            { name: "นางสุดารัตน์ เชี่ยวสกุล", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 127", id: "person13" },
+            { name: "นายอัครพัฒน์ กองพงษ์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 130", id: "person14" }
+        ];
+
+        // Person images - you can add base64 images here
+        const personImages = {
+            person1: "https://img2.pic.in.th/pic/16cf2d0a100884469f.jpg", // Add base64 image for นายประดิษฐ์ แสงชัย
+            person2: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53511155.jpg", // Add base64 image for นายสง่า บัวไขย
+            person3: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72120293.jpg", // Add base64 image for นายวิรันต์โรจน์ การพะวงศ์
+            person4: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65110067.jpg", // Add base64 image for นางสุพิชฌาย์ เจือจันทร์
+            person5: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65211935.jpg", // Add base64 image for นางตรีชญาฎาฉ์ พระงาม
+            person6: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72412745.jpg", // Add base64 image for นางไพบูรณ์ ราตรี
+            person7: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53219280.jpg", // Add base64 image for นายญาณวุฒิ ธรรมมาบุญ
+            person8: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65314630.jpg", // Add base64 image for นางบังอร พงค์พีระ
+            person9: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53219280.jpg", // Add base64 image for นายญาณวุฒิ ธรรมมาบุญ
+            person10: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65422805.jpg", // Add base64 image for นางพิมพ์ลดา พสิษฐ์พงศกร
+            person11: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72115105.jpg", // Add base64 image for นายธนกร นิยมศรี
+            person12: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53313779.jpg", // Add base64 image for นางกัญญาวีร์ ภูหมื่น
+            person13: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72211829.jpg", // Add base64 image for นางสุดารัตน์ เชี่ยวสกุล
+            person14: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53212623.jpg"  // Add base64 image for นายอัครพัฒน์ กองพงษ์
+        };
+
+        function createPersonCard(person, buttonText) {
+            const personImage = personImages[person.id];
+            const imageDisplay = personImage ? 
+                `<img src="${personImage}" alt="${person.name}" class="w-16 h-16 rounded-full object-cover border-2 border-white border-opacity-30">` :
+                `<div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center border-2 border-white border-opacity-30">
+                    <span class="text-xl font-bold">${person.name.charAt(2)}</span>
+                </div>`;
+
+            return `
+                <div class="person-card rounded-xl p-6 text-white shadow-lg cursor-pointer" 
+                     onclick="openPersonSheet('${person.id}')">
+                    <div class="flex items-start mb-4">
+                        <div class="mr-4">
+                            ${imageDisplay}
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold leading-tight">${person.name}</h3>
+                            <p class="text-sm opacity-80 leading-tight">${person.position}</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-sm opacity-75">
+                            📊 รายงานผลงาน
+                        </div>
+                        <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-sm font-medium transition-all">
+                            ${buttonText}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPersonGrid() {
+            const grid = document.getElementById('person-grid');
+            const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+            const buttonText = config.button_text || defaultConfig.button_text;
+            
+            grid.innerHTML = persons.map(person => createPersonCard(person, buttonText)).join('');
+        }
+
+
+
+        function openPersonSheet(personId) {
+            // Sample Google Sheets URLs - replace with actual URLs
+            const sheetUrls = {
+                person1: "https://docs.google.com/spreadsheets/d/1GCMzJ2kS4uQPz2Q2h4bFzyZId-qNJeJvuclKtS3PI5k/edit?usp=sharing",
+                person2: "https://docs.google.com/spreadsheets/d/1PB-LjdbPedXxBRmN5abqn6VcUSnI4aCYKIV8OpXzh10/edit?usp=sharing",
+                person3: "https://docs.google.com/spreadsheets/d/1CFTPzk3DtTPardX5utoN4d9BVTykCaQrpScZJFMsRZo/edit?usp=sharing",
+                person4: "https://docs.google.com/spreadsheets/d/14vOvXJjKt7ilXCSvWd8SadVZtprhP2Mtp4sOJyKTrn0/edit?usp=sharing",
+                person5: "https://docs.google.com/spreadsheets/d/1Jx0cUZMitkmMDFISgEkCJPn3H7PNXbQuPXQKnO93rKM/edit?usp=sharing",
+                person6: "https://docs.google.com/spreadsheets/d/1kzK-sVOEycxxAT1nOAvwjNV6l2pKpHwnFzG2j1Wk3-o/edit?usp=sharing",
+                person7: "https://docs.google.com/spreadsheets/d/1W3oKdenGPBrntYg0BM3KjO0R2vafK71Q8ZYtwoCQ51Y/edit?usp=sharing",
+                person8: "https://docs.google.com/spreadsheets/d/1W1O2GMEzV19tbIWuRTJrp5hSh0IlUOg2n6tZsc9PCe4/edit?usp=sharing",
+                person9: "https://docs.google.com/spreadsheets/d/1-sZsnazyGuURghsuMhKzEAiefPMOFXnqgsdKBx8PoLk/edit?usp=sharing",
+                person10: "https://docs.google.com/spreadsheets/d/1zk_DIeYDWv9x_xTawhmoP-xxBWW1dkfEbXFM40hCU38/edit?usp=sharing",
+                person11: "https://docs.google.com/spreadsheets/d/1-ihcfZNluwOf3KtqIzZrgvNSM334ToMrJ1YIJtZhJNs/edit?usp=sharing",
+                person12: "https://docs.google.com/spreadsheets/d/1-SEvVA0FTPpSfSMQ4huf_b5dwL1NtZC3JWFTOG3a81w/edit?usp=sharing",
+                person13: "https://docs.google.com/spreadsheets/d/1xuChQO4jV4qrxEruuYo-lsXK7MbL0YxXJFqktnhalCk/edit?usp=sharing",
+                person14: "https://docs.google.com/spreadsheets/d/1Sy_gaeBPKDEwyA2qB5dxGTHZZW2cZXwSreelnjyge8A/edit?usp=sharing"
+            };
+
+            const url = sheetUrls[personId];
+            if (url) {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        // Element SDK configuration
+        async function onConfigChange(config) {
+            // Update text content
+            document.getElementById('main-title').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
+            document.getElementById('description').textContent = config.description || defaultConfig.description;
+            
+            // Update colors
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            
+            // Apply colors to elements
+            document.body.style.background = `linear-gradient(to bottom right, ${backgroundColor}, #e0e7ff)`;
+            
+            const headerElements = document.querySelectorAll('.header-gradient');
+            headerElements.forEach(el => {
+                el.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+            });
+            
+            const personCards = document.querySelectorAll('.person-card');
+            personCards.forEach(el => {
+                el.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+            });
+            
+            // Re-render grid to update button text
+            renderPersonGrid();
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            window.elementSdk.setConfig({ primary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            window.elementSdk.setConfig({ secondary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["subtitle", config.subtitle || defaultConfig.subtitle],
+                ["description", config.description || defaultConfig.description],
+                ["button_text", config.button_text || defaultConfig.button_text]
+            ]);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPersonGrid();
+            
+            if (window.elementSdk) {
+                window.elementSdk.init({
+                    defaultConfig,
+                    onConfigChange,
+                    mapToCapabilities,
+                    mapToEditPanelValues
+                });
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'997ab99cd47f7b41',t:'MTc2MTk5MzExNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
