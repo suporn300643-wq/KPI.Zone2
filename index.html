@@ -84,38 +84,42 @@
 
         // Person data (14 people)
         const persons = [
-            { name: "นายประดิษฐ์ แสงชัย", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 4", id: "person1" },
-            { name: "นายสง่า บัวไขย", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 6", id: "person2" },
-            { name: "นายวิรันต์โรจน์ การพะวงศ์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 23", id: "person3" },
-            { name: "นางสุพิชฌาย์ เจือจันทร์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 24", id: "person4" },
-            { name: "นางตรีชญาฎาฉ์ พระงาม", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 42", id: "person5" },
-            { name: "นางไพบูรณ์ ราตรี", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 71", id: "person6" },
-            { name: "นายญาณวุฒิ ธรรมมาบุญ", position: "(ร.ก.)ผู้จัดการฝ่ายขยายงานภูมิภาค 81", id: "person7" },
-            { name: "นางบังอร พงค์พีระ", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 82", id: "person8" },
-            { name: "นายญาณวุฒิ ธรรมมาบุญ", position: "(ร.ก.)ผู้จัดการฝ่ายขยายงานภูมิภาค 103", id: "person9" },
-            { name: "นางพิมพ์ลดา พสิษฐ์พงศกร", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 111", id: "person10" },
-            { name: "นายธนกร นิยมศรี", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 118", id: "person11" },
-            { name: "นางกัญญาวีร์ ภูหมื่น", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 121", id: "person12" },
-            { name: "นางสุดารัตน์ เชี่ยวสกุล", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 127", id: "person13" },
-            { name: "นายอัครพัฒน์ กองพงษ์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 130", id: "person14" }
+            { name: "สรุปรวมทั้งโซน", position: "กลุ่มการตลาดโซน 2", id: "person1" }
+            { name: "นายประดิษฐ์ แสงชัย", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 4", id: "person2" },
+            { name: "นายสง่า บัวไขย", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 6", id: "person3" },
+            { name: "นายวิรันต์โรจน์ การพะวงศ์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 23", id: "person4" },
+            { name: "นางสุพิชฌาย์ เจือจันทร์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 24", id: "person5" },
+            { name: "นางตรีชญาฎาฉ์ พระงาม", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 42", id: "person6" },
+            { name: "นางไพบูรณ์ ราตรี", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 71", id: "person7" },
+            { name: "นายญาณวุฒิ ธรรมมาบุญ", position: "(ร.ก.)ผู้จัดการฝ่ายขยายงานภูมิภาค 81", id: "person8" },
+            { name: "นางบังอร พงค์พีระ", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 82", id: "person9" },
+            { name: "นายญาณวุฒิ ธรรมมาบุญ", position: "(ร.ก.)ผู้จัดการฝ่ายขยายงานภูมิภาค 103", id: "person10" },
+            { name: "นางพิมพ์ลดา พสิษฐ์พงศกร", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 111", id: "person11" },
+            { name: "นายธนกร นิยมศรี", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 118", id: "person12" },
+            { name: "นางกัญญาวีร์ ภูหมื่น", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 121", id: "person13" },
+            { name: "นางสุดารัตน์ เชี่ยวสกุล", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 127", id: "person14" },
+            { name: "นายอัครพัฒน์ กองพงษ์", position: "ผู้จัดการฝ่ายขยายงานภูมิภาค 130", id: "person15" }
+
         ];
 
         // Person images - you can add base64 images here
-        const personImages = {
-            person1: "https://img2.pic.in.th/pic/16cf2d0a100884469f.jpg", // Add base64 image for นายประดิษฐ์ แสงชัย
-            person2: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53511155.jpg", // Add base64 image for นายสง่า บัวไขย
-            person3: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72120293.jpg", // Add base64 image for นายวิรันต์โรจน์ การพะวงศ์
-            person4: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65110067.jpg", // Add base64 image for นางสุพิชฌาย์ เจือจันทร์
-            person5: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65211935.jpg", // Add base64 image for นางตรีชญาฎาฉ์ พระงาม
-            person6: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72412745.jpg", // Add base64 image for นางไพบูรณ์ ราตรี
-            person7: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53219280.jpg", // Add base64 image for นายญาณวุฒิ ธรรมมาบุญ
-            person8: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65314630.jpg", // Add base64 image for นางบังอร พงค์พีระ
-            person9: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53219280.jpg", // Add base64 image for นายญาณวุฒิ ธรรมมาบุญ
-            person10: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65422805.jpg", // Add base64 image for นางพิมพ์ลดา พสิษฐ์พงศกร
-            person11: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72115105.jpg", // Add base64 image for นายธนกร นิยมศรี
-            person12: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53313779.jpg", // Add base64 image for นางกัญญาวีร์ ภูหมื่น
-            person13: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72211829.jpg", // Add base64 image for นางสุดารัตน์ เชี่ยวสกุล
-            person14: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53212623.jpg"  // Add base64 image for นายอัครพัฒน์ กองพงษ์
+        const personImages =  [
+            person1: "https://img5.pic.in.th/file/secure-sv1/Red-White-Bold-Gladiator-Logo101.md.png"  // Add base64 image for โซน 2
+            person2: "https://img2.pic.in.th/pic/16cf2d0a100884469f.jpg", // Add base64 image for นายประดิษฐ์ แสงชัย
+            person3: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53511155.jpg", // Add base64 image for นายสง่า บัวไขย
+            person4: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72120293.jpg", // Add base64 image for นายวิรันต์โรจน์ การพะวงศ์
+            person5: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65110067.jpg", // Add base64 image for นางสุพิชฌาย์ เจือจันทร์
+            person6: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65211935.jpg", // Add base64 image for นางตรีชญาฎาฉ์ พระงาม
+            person7: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72412745.jpg", // Add base64 image for นางไพบูรณ์ ราตรี
+            person8: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53219280.jpg", // Add base64 image for นายญาณวุฒิ ธรรมมาบุญ
+            person9: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65314630.jpg", // Add base64 image for นางบังอร พงค์พีระ
+            person10: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53219280.jpg", // Add base64 image for นายญาณวุฒิ ธรรมมาบุญ
+            person11: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/65422805.jpg", // Add base64 image for นางพิมพ์ลดา พสิษฐ์พงศกร
+            person12: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72115105.jpg", // Add base64 image for นายธนกร นิยมศรี
+            person13: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53313779.jpg", // Add base64 image for นางกัญญาวีร์ ภูหมื่น
+            person14: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/72211829.jpg", // Add base64 image for นางสุดารัตน์ เชี่ยวสกุล
+            person15: "https://assets.thailife.com/IT/ca/upload_file/sale_pic/53212623.jpg"  // Add base64 image for นายอัครพัฒน์ กองพงษ์
+
         };
 
         function createPersonCard(person, buttonText) {
@@ -163,20 +167,21 @@
         function openPersonSheet(personId) {
             // Sample Google Sheets URLs - replace with actual URLs
             const sheetUrls = {
-                person1: "https://docs.google.com/spreadsheets/d/1GCMzJ2kS4uQPz2Q2h4bFzyZId-qNJeJvuclKtS3PI5k/edit?usp=sharing",
-                person2: "https://docs.google.com/spreadsheets/d/1PB-LjdbPedXxBRmN5abqn6VcUSnI4aCYKIV8OpXzh10/edit?usp=sharing",
-                person3: "https://docs.google.com/spreadsheets/d/1CFTPzk3DtTPardX5utoN4d9BVTykCaQrpScZJFMsRZo/edit?usp=sharing",
-                person4: "https://docs.google.com/spreadsheets/d/14vOvXJjKt7ilXCSvWd8SadVZtprhP2Mtp4sOJyKTrn0/edit?usp=sharing",
-                person5: "https://docs.google.com/spreadsheets/d/1Jx0cUZMitkmMDFISgEkCJPn3H7PNXbQuPXQKnO93rKM/edit?usp=sharing",
-                person6: "https://docs.google.com/spreadsheets/d/1kzK-sVOEycxxAT1nOAvwjNV6l2pKpHwnFzG2j1Wk3-o/edit?usp=sharing",
-                person7: "https://docs.google.com/spreadsheets/d/1W3oKdenGPBrntYg0BM3KjO0R2vafK71Q8ZYtwoCQ51Y/edit?usp=sharing",
-                person8: "https://docs.google.com/spreadsheets/d/1W1O2GMEzV19tbIWuRTJrp5hSh0IlUOg2n6tZsc9PCe4/edit?usp=sharing",
-                person9: "https://docs.google.com/spreadsheets/d/1-sZsnazyGuURghsuMhKzEAiefPMOFXnqgsdKBx8PoLk/edit?usp=sharing",
-                person10: "https://docs.google.com/spreadsheets/d/1zk_DIeYDWv9x_xTawhmoP-xxBWW1dkfEbXFM40hCU38/edit?usp=sharing",
-                person11: "https://docs.google.com/spreadsheets/d/1-ihcfZNluwOf3KtqIzZrgvNSM334ToMrJ1YIJtZhJNs/edit?usp=sharing",
-                person12: "https://docs.google.com/spreadsheets/d/1-SEvVA0FTPpSfSMQ4huf_b5dwL1NtZC3JWFTOG3a81w/edit?usp=sharing",
-                person13: "https://docs.google.com/spreadsheets/d/1xuChQO4jV4qrxEruuYo-lsXK7MbL0YxXJFqktnhalCk/edit?usp=sharing",
-                person14: "https://docs.google.com/spreadsheets/d/1Sy_gaeBPKDEwyA2qB5dxGTHZZW2cZXwSreelnjyge8A/edit?usp=sharing"
+                person1: "https://docs.google.com/spreadsheets/d/1M22yARBRUMxhozjJRJ4xp3yfnbiK1CNXySLG5PCfm6o/edit?usp=sharing",
+                person2: "https://docs.google.com/spreadsheets/d/1GCMzJ2kS4uQPz2Q2h4bFzyZId-qNJeJvuclKtS3PI5k/edit?usp=sharing",
+                person3: "https://docs.google.com/spreadsheets/d/1PB-LjdbPedXxBRmN5abqn6VcUSnI4aCYKIV8OpXzh10/edit?usp=sharing",
+                person4: "https://docs.google.com/spreadsheets/d/1CFTPzk3DtTPardX5utoN4d9BVTykCaQrpScZJFMsRZo/edit?usp=sharing",
+                person5: "https://docs.google.com/spreadsheets/d/14vOvXJjKt7ilXCSvWd8SadVZtprhP2Mtp4sOJyKTrn0/edit?usp=sharing",
+                person6: "https://docs.google.com/spreadsheets/d/1Jx0cUZMitkmMDFISgEkCJPn3H7PNXbQuPXQKnO93rKM/edit?usp=sharing",
+                person7: "https://docs.google.com/spreadsheets/d/1kzK-sVOEycxxAT1nOAvwjNV6l2pKpHwnFzG2j1Wk3-o/edit?usp=sharing",
+                person8: "https://docs.google.com/spreadsheets/d/1W3oKdenGPBrntYg0BM3KjO0R2vafK71Q8ZYtwoCQ51Y/edit?usp=sharing",
+                person9: "https://docs.google.com/spreadsheets/d/1W1O2GMEzV19tbIWuRTJrp5hSh0IlUOg2n6tZsc9PCe4/edit?usp=sharing",
+                person10: "https://docs.google.com/spreadsheets/d/1-sZsnazyGuURghsuMhKzEAiefPMOFXnqgsdKBx8PoLk/edit?usp=sharing",
+                person11: "https://docs.google.com/spreadsheets/d/1zk_DIeYDWv9x_xTawhmoP-xxBWW1dkfEbXFM40hCU38/edit?usp=sharing",
+                person12: "https://docs.google.com/spreadsheets/d/1-ihcfZNluwOf3KtqIzZrgvNSM334ToMrJ1YIJtZhJNs/edit?usp=sharing",
+                person13: "https://docs.google.com/spreadsheets/d/1-SEvVA0FTPpSfSMQ4huf_b5dwL1NtZC3JWFTOG3a81w/edit?usp=sharing",
+                person14: "https://docs.google.com/spreadsheets/d/1xuChQO4jV4qrxEruuYo-lsXK7MbL0YxXJFqktnhalCk/edit?usp=sharing",
+                person15: "https://docs.google.com/spreadsheets/d/1Sy_gaeBPKDEwyA2qB5dxGTHZZW2cZXwSreelnjyge8A/edit?usp=sharing"
             };
 
             const url = sheetUrls[personId];
@@ -278,3 +283,4 @@
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'997ab99cd47f7b41',t:'MTc2MTk5MzExNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 
 </html>
+
